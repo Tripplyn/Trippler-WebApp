@@ -13,30 +13,36 @@ function ControlPanel(props: {
   }) => void;
 }) {
   return (
-    <div className="ag-row-position-absolute top-0 right-0 m-20 max-w-4xl rounded-lg bg-slate-300 p-12">
-      {/*<h3>Camera Transition</h3>*/}
-      {/*<p>Smooth animate of the viewport.</p>*/}
+    <div className="top-0  ml-20 mr-20 mt-1 rounded-lg  p-6">
       <div className="source-link">
-        {/*<a*/}
         {/*  href="https://github.com/visgl/react-map-gl/tree/7.0-release/examples/viewport-animation"*/}
-        {/*  target="_new"*/}
-        {/*>*/}
-        {/*  View Code ↗*/}
-        {/*</a>*/}
       </div>
-      <hr />
+
+      <div className='pb-2'>
+        <input type="text"
+               className="bg-gray-700 text-white text-sm rounded-lg w-full p-2.5"
+               placeholder="Add a new place"
+        />
+      </div>
 
       {CITIES.filter((city) => city.state === "California").map(
         (city, index) => (
-          <div key={`btn-${index}`} className="input">
-            <input
-              type="radio"
-              name="city"
-              id={`city-${index}`}
-              defaultChecked={city.city === "San Francisco"}
-              onClick={() => props.onSelectCity(city)}
-            />
-            <label htmlFor={`city-${index}`}>{city.city}</label>
+          <div key={`btn-${index}`} className="pt-5">
+              <div
+                className="cursor-pointer flex flex-row items-center rounded-lg bg-principal p-2 text-white"
+                onClick={() => props.onSelectCity(city)}
+              >
+                <img
+                  src={city.image}
+                  alt=""
+                  className="max-h-20 max-w-3xl rounded-lg object-scale-down"
+                />
+                <div className="flex flex-col pl-4">
+                  <p className="text-3xl font-semibold">{city.city}</p>
+                  <p className="text-sm italic ">Lat: {city.latitude}</p>
+                  <p className="text-sm italic ">Long: {city.longitude}</p>
+                </div>
+              </div>
           </div>
         )
       )}

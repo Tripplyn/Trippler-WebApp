@@ -27,12 +27,12 @@ export default function App() {
   );
 
   return (
-    <div>
+    <div className="bg-background">
       <div className="flex flex-row">
         <div className="w-1/2">
           <div className="flex flex-row items-center justify-center pt-4">
             <Image src="/logo.png" alt="logo" width={100} height={100} />
-            <h1 className="text-8xl text-indigo-900">Trippler</h1>
+            <h1 className="text-8xl text-principal">Trippler</h1>
           </div>
           <ControlPanel onSelectCity={onSelectCity} />
         </div>
@@ -43,7 +43,8 @@ export default function App() {
           mapboxAccessToken={
             "pk.eyJ1IjoieXVyaWFjaGVybWFubiIsImEiOiJja3o0Y2hxZ28wNGRoMnhwazdhYm1qdzkzIn0.d80_ASGDAuZ7uGhIDCMXbw"
           }
-          style={{ width: 1200, height: "100vh" }}
+          style={{ width: 1200, height: "100vh"}}
+          attributionControl={false}
         />
       </div>
     </div>
