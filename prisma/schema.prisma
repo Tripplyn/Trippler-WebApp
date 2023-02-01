@@ -11,46 +11,46 @@ datasource db {
 }
 
 model Travel {
-  id        Int      @unique
-  travelID  String   @unique @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  travelName String
+  id              Int            @unique
+  travelID        String         @unique @default(cuid())
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  travelName      String
   travelDateStart DateTime
-  travelDateEnd DateTime
-  Stop      Stop[]  @relation()
-  Transit   Transit[] @relation()
-  PackingItems PackingItems[] @relation()
+  travelDateEnd   DateTime
+  Stop            Stop[]         @relation()
+  Transit         Transit[]      @relation()
+  PackingItems    PackingItems[] @relation()
 }
 
 model Stop {
-  id                Int      @unique
-  stopID            String   @unique @default(cuid())
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
-  firstStop         Boolean  @default(false)
-  lastStop          Boolean  @default(false)
-  Travel            Travel   @relation(fields: [travelID], references: [travelID])
-  travelID          String
-  NextTransit       Transit[]  @relation("TransitToNextStop")
-  PreviousTransit   Transit[]  @relation("TransitToPreviousStop")
+  id              Int       @unique
+  stopID          String    @unique @default(cuid())
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+  firstStop       Boolean   @default(false)
+  lastStop        Boolean   @default(false)
+  Travel          Travel    @relation(fields: [travelID], references: [travelID])
+  travelID        String
+  NextTransit     Transit[] @relation("TransitToNextStop")
+  PreviousTransit Transit[] @relation("TransitToPreviousStop")
 }
 
 model Transit {
-  id          Int      @unique
-  transitID   String   @unique @default(cuid())
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-  mode        String
-  duration    Float
-  distance    Float
-  ditanceUnit String
+  id             Int      @unique
+  transitID      String   @unique @default(cuid())
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  mode           String
+  duration       Float
+  distance       Float
+  ditanceUnit    String
   PreviousStop   Stop     @relation("TransitToPreviousStop", fields: [previousStopID], references: [stopID])
   previousStopID String
   NextStop       Stop     @relation("TransitToNextStop", fields: [nextStopID], references: [stopID])
   nextStopID     String
-  Travel      Travel   @relation(fields: [travelID], references: [travelID])
-  travelID    String
+  Travel         Travel   @relation(fields: [travelID], references: [travelID])
+  travelID       String
 }
 
 model PackingItems {
@@ -62,49 +62,4 @@ model PackingItems {
   quantity  Int
   Travel    Travel   @relation(fields: [travelID], references: [travelID])
   travelID  String
-}
-
-// Necessary for Next auth
-model Account {
-  id                String  @unique @default(cuid())
-  userId            String
-  type              String
-  provider          String
-  providerAccountId String
-  refresh_token     String? @db.Text
-  access_token      String? @db.Text
-  expires_at        Int?
-  token_type        String?
-  scope             String?
-  id_token          String? @db.Text
-  session_state     String?
-  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@unique([provider, providerAccountId])
-}
-
-model Session {
-  id           String   @unique @default(cuid())
-  sessionToken String   @unique
-  userId       String
-  expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
-
-model User {
-  id            String    @unique @default(cuid())
-  name          String?
-  email         String?   @unique
-  emailVerified DateTime?
-  image         String?
-  accounts      Account[]
-  sessions      Session[]
-}
-
-model VerificationToken {
-  identifier String
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
 }
