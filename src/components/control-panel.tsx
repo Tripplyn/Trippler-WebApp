@@ -13,20 +13,10 @@ function ControlPanel(props: {
   }) => void;
 }) {
   return (
-    <div className="ag-row-position-absolute top-0 right-0 m-20 max-w-4xl rounded-lg bg-slate-300 p-12">
-      {/*<h3>Camera Transition</h3>*/}
-      {/*<p>Smooth animate of the viewport.</p>*/}
-      <div className="source-link">
-        {/*<a*/}
-        {/*  href="https://github.com/visgl/react-map-gl/tree/7.0-release/examples/viewport-animation"*/}
-        {/*  target="_new"*/}
-        {/*>*/}
-        {/*  View Code ↗*/}
-        {/*</a>*/}
-      </div>
+    <div className="ag-row-position-absolute top-0 right-0 m-8 max-w-4xl rounded-lg bg-slate-300 p-12">
       <hr />
 
-      {CITIES.filter((city) => city.state === "California").map(
+      {CITIES.map(
         (city, index) => (
           <div key={`btn-${index}`} className="input">
             <input
