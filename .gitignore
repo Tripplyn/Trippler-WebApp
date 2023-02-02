@@ -41,5 +41,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-#sonarlint
+# SonarLint
 /.idea/sonarlint/issuestore
+
+# Vitest
+/.vitest-result.json
