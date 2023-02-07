@@ -42,7 +42,10 @@ yarn-error.log*
 *.tsbuildinfo
 
 # SonarLint
-/.idea/sonarlint/issuestore
+/.idea/sonarlint
 
 # Vitest
 /.vitest-result.json
+
+# pages
+test.tsx
