@@ -7,7 +7,6 @@ import Map from "react-map-gl";
 
 import ControlPanel from "../components/control-panel";
 import Image from "next/image";
-import ButtonMui3 from "~/components/ButtonMui3";
 
 const initialViewState = {
   latitude: 37.7751,
@@ -19,6 +18,8 @@ const initialViewState = {
 
 export default function App() {
   const mapRef = useRef<MapRef | null>(null);
+
+  console.log(process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN)
 
 
   const onSelectCity = useCallback(
@@ -50,7 +51,7 @@ export default function App() {
           initialViewState={initialViewState}
           mapStyle="mapbox://styles/mapbox/navigation-night-v1"
           mapboxAccessToken={
-            "pk.eyJ1IjoieXVyaWFjaGVybWFubiIsImEiOiJja3o0Y2hxZ28wNGRoMnhwazdhYm1qdzkzIn0.d80_ASGDAuZ7uGhIDCMXbw"
+            process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN as string
           }
           style={{ width: 1200, height: "100vh"}}
           attributionControl={false}
