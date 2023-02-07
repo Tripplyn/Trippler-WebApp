@@ -18,7 +18,8 @@ const initialViewState = {
 };
 
 export default function App() {
-  const mapRef = useRef<MapRef>();
+  const mapRef = useRef<MapRef | null>(null);
+
 
   const onSelectCity = useCallback(
     ({ longitude, latitude }: { longitude: number; latitude: number }) => {
