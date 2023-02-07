@@ -35,13 +35,13 @@ export default function App() {
             <Image src="/logo.png" alt="logo" width={100} height={100} />
             <h1 className="text-8xl text-principal">Trippler</h1>
           </div>
-          <div className="p-8">
-            <ButtonMui3
-              variant="contained"
-              color="primary"
-              size="small"
-            >ADD STOP</ButtonMui3>
-          </div>
+          {/*<div className="p-8">*/}
+          {/*  <ButtonMui3*/}
+          {/*    variant="contained"*/}
+          {/*    color="primary"*/}
+          {/*    size="small"*/}
+          {/*  >ADD STOP</ButtonMui3>*/}
+          {/*</div>*/}
           <ControlPanel onSelectCity={onSelectCity} />
         </div>
         <Map

@@ -41,5 +41,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-#sonarlint
-/.idea/sonarlint/issuestore
+# sonarlint
+/.idea/sonarlint
+
+# pages
+test.tsx
