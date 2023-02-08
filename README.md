@@ -54,6 +54,7 @@ Web Application
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 ### Built With
 
 * [![Typescript][Typescript]][Typescript-url]
@@ -66,6 +67,7 @@ Web Application
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 <!-- GETTING STARTED -->
 ## Getting Started
 
@@ -74,51 +76,72 @@ To get a local copy up and running follow these simple example steps.
 ### Prerequisites
 
 * npm
-  ```sh
+  ```console
   npm install npm@latest -g
   ```
 
 ### Installation
 
-Clone the repo
-   ```sh
-   git clone https://github.com/Trippler-Travel-App/WebApp.git
+Execute commands on your Terminal:
+
+→ Clone the repo
+   ```console
+   git clone https://github.com/Trippler-Travel-App/Trippler-WebApp.git
    ```
-Install NPM packages
-   ```sh
+→ Move to the project directory
+   ```console
+   cd Trippler-WebApp
+   ```
+→ Install NPM packages
+   ```console
    npm install
    ```
-Generate a Secret
-   ```sh
+→ Create `.env` file based on `.env.example`
+   ```console
+   copy .env.example .env
+   ```
+→ Generate a Secret and copy the buffer
+   ```console
    openssl rand -base64 32
    ```
-Create the file `.env` using `.env.template`
+→ Open file `.env` to paste that on NEXTAUTH_SECRET
+
+<p align="left">→ Reach <a href="#contact">contacts</a> for DATABASE_URL</p>
+
+→ Execute development server and access https://localhost:3000
+   ```console
+   npm run dev
+   ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 <!-- ROADMAP -->
 ## Roadmap
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+
 <!-- CONTACT -->
 ## Contact
 
+Yuri Winche Achermann - [@YuriAchermann](https://twitter.com/YuriAchermann) - yuri.achermann@gmail.com
 
-
-Project Link: [https://github.com/Trippler-Travel-App/WebApp](https://github.com/Trippler-Travel-App/WebApp)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
