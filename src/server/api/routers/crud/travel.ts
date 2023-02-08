@@ -14,8 +14,7 @@ export const travelRouter = createTRPCRouter({
     .mutation(async ({ ctx: { prisma }, input }) => {
       await prisma.travel.create({
         data: {
-          id: uuid(),
-          travelName: input.travelName,
+          travelName: input?.travelName,
           travelDateStart: input.travelDateStart,
           travelDateEnd: input.travelDateEnd,
         },

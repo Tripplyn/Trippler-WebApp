@@ -1,9 +1,51 @@
 import * as React from "react";
-
+import { api } from "~/utils/api";
+import { QueryClient } from "react-query";
 interface Props {
   onClose: () => void;
 }
-const Createtravel: React.FC<Props> = ({ onClose }) => {
+
+interface FormValues {
+  name?: string;
+}
+
+const queryClient = new QueryClient();
+
+const CreateTravel: React.FC<Props> = ({ onClose }) => {
+  const [formValues, setFormValues] = React.useState<FormValues>({});
+
+  const { mutateAsync: createTravel } = api.travel.create.useMutation({
+    onSuccess: async (data) => {
+      queryClient.setQueryData(["travel.read"], data);
+    },
+    onError: () => {
+      console.log("error while creating Travel");
+    },
+  });
+
+  function handleTextFieldChange(
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = event.target;
+    setFormValues({
+      ...formValues,
+      [name]: value,
+    });
+  }
+
+  function handleCreateTravel() {
+    if (formValues.name) {
+      console.log(
+        createTravel({
+          travelName: formValues.name,
+          travelDateStart: new Date(2022, 9, 21),
+          travelDateEnd: new Date(2022, 9, 21),
+        })
+      );
+      onClose();
+    }
+  }
+
   return (
     <div className="text-whit w-1/2 rounded-lg bg-principal p-4 shadow-md ">
       <div>
@@ -18,6 +60,8 @@ const Createtravel: React.FC<Props> = ({ onClose }) => {
             type="text"
             className="w-full rounded-lg bg-gray-700 p-4 text-sm text-white"
             placeholder="Add the name"
+            name="name"
+            onChange={handleTextFieldChange}
           />
         </div>
         <div className="w-full pt-4">
@@ -25,6 +69,7 @@ const Createtravel: React.FC<Props> = ({ onClose }) => {
             type="text"
             className="w-full rounded-lg bg-gray-700 p-4 text-sm text-white"
             placeholder="Add the start date"
+            name="travelDateStart"
           />
         </div>
         <div className="w-full pt-4">
@@ -32,6 +77,7 @@ const Createtravel: React.FC<Props> = ({ onClose }) => {
             type="text"
             className="w-full rounded-lg bg-gray-700 p-4 text-sm text-white"
             placeholder="Add the end name"
+            name="travelDateEnd"
           />
         </div>
       </div>
@@ -47,6 +93,7 @@ const Createtravel: React.FC<Props> = ({ onClose }) => {
         <button
           type="button"
           className="flex items-center justify-end  rounded bg-blue-800 p-4 text-sm text-white"
+          onClick={handleCreateTravel}
         >
           New trip
         </button>
@@ -55,4 +102,4 @@ const Createtravel: React.FC<Props> = ({ onClose }) => {
   );
 };
 
-export default Createtravel;
+export default CreateTravel;

@@ -11,7 +11,7 @@ datasource db {
 }
 
 model Travel {
-  id              Int            @unique
+  id              Int            @unique @default(autoincrement())
   travelID        String         @unique @default(cuid())
   createdAt       DateTime       @default(now())
   updatedAt       DateTime       @updatedAt
@@ -24,7 +24,7 @@ model Travel {
 }
 
 model Stop {
-  id              Int       @unique
+  id              Int       @unique @default(autoincrement())
   stopID          String    @unique @default(cuid())
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
@@ -37,7 +37,7 @@ model Stop {
 }
 
 model Transit {
-  id             Int      @unique
+  id             Int      @unique @default(autoincrement())
   transitID      String   @unique @default(cuid())
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
@@ -54,7 +54,7 @@ model Transit {
 }
 
 model PackingItems {
-  id        Int      @unique
+  id        Int      @unique @default(autoincrement())
   itemID    String   @unique @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
