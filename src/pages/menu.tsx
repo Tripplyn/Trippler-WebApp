@@ -3,10 +3,15 @@ import Toolbar from "~/components/Toolbar";
 import TravelCard from "~/components/TravelCard";
 import { api } from "~/utils/api";
 import Createtravel from "~/components/CreateTravel";
+import { QueryClient, QueryClientProvider } from "react-query";
 
+const queryClient = new QueryClient();
 
 export default function Menu() {
   const [showCreateTravel, setShowCreateTravel] = React.useState(false);
+  const [travelCode, setTravelCode] = React.useState("");
+
+  const travelAll = api.travel.read.useQuery({}).data;
 
   const handleShowCreateTravel = () => {
     setShowCreateTravel(false);
@@ -28,10 +33,18 @@ export default function Menu() {
             </button>
           </div>
           <div className="p-1">
-            <TravelCard />
+            {travelAll?.map((travel) => (
+              <QueryClientProvider
+                client={queryClient}
+                contextSharing={true}
+                key={travel.id}
+              >
+                <TravelCard name={travel.travelName}/>
+              </QueryClientProvider>
+            ))}
           </div>
         </div>
-        {showCreateTravel && <Createtravel onClose={handleShowCreateTravel}/>}
+        {showCreateTravel && <Createtravel onClose={handleShowCreateTravel} />}
       </div>
     </div>
   );
