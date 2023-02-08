@@ -6,7 +6,7 @@ import type { MapRef } from "react-map-gl";
 import Map from "react-map-gl";
 
 import ControlPanel from "../components/control-panel";
-import Image from "next/image";
+import Toolbar from "~/components/Toolbar";
 
 const initialViewState = {
   latitude: 37.7751,
@@ -31,19 +31,13 @@ export default function App() {
 
   return (
     <div className="bg-background">
+      <Toolbar />
       <div className="flex flex-row">
         <div className="w-1/2">
           <div className="flex flex-row items-center justify-center pt-4">
-            <Image src="/logo.png" alt="logo" width={100} height={100} />
-            <h1 className="text-8xl text-principal">Trippler</h1>
+            {/*<Image src="/logo.png" alt="logo" width={100} height={100} />*/}
+            <h1 className="text-8xl text-white">Your trip</h1>
           </div>
-          {/*<div className="p-8">*/}
-          {/*  <ButtonMui3*/}
-          {/*    variant="contained"*/}
-          {/*    color="primary"*/}
-          {/*    size="small"*/}
-          {/*  >ADD STOP</ButtonMui3>*/}
-          {/*</div>*/}
           <ControlPanel onSelectCity={onSelectCity} />
         </div>
         <Map

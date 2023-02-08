@@ -6,7 +6,8 @@ module.exports = {
       colors: {
         principal: '#1D4365',
         background: '#1B1F23',
-        buttonCities: '#3871C1'
+        buttonCities: '#3871C1',
+        toolbar_background: '#1A1D20'
       },
     },
   },

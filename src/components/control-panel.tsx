@@ -14,9 +14,6 @@ function ControlPanel(props: {
 }) {
   return (
     <div className="top-0  ml-20 mr-20 mt-1 rounded-lg  p-6">
-      <div className="source-link">
-        {/*  href="https://github.com/visgl/react-map-gl/tree/7.0-release/examples/viewport-animation"*/}
-      </div>
 
       <div className='pb-2'>
         <input type="text"
