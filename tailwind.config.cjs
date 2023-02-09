@@ -4,12 +4,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        principal: '#1D4365',
-        background: '#1B1F23',
-        buttonCities: '#3871C1',
-        toolbar_background: '#1A1D20'
+        principal: "#1D4365",
+        background: "#1B1F23",
+        buttonCities: "#3871C1",
+        toolbar_background: "#1A1D20",
       },
     },
   },
-  plugins: [],
+  plugins: [require("tailwind-scrollbar")],
 };

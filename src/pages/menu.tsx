@@ -65,7 +65,9 @@ export default function Menu() {
               New trip
             </button>
           </div>
-          <div className="p-1">
+          <div className="p-3 scrollbar scrollbar-track-slate-700 scrollbar-thumb-principal"
+               style={{ height: "500px" }}
+          >
             {travels?.map((travel) => (
               <QueryClientProvider
                 client={queryClient}
@@ -77,6 +79,7 @@ export default function Menu() {
             ))}
           </div>
         </div>
+        <div className="p-2"/>
         {showCreateTravel && <Createtravel onClose={handleShowCreateTravel} onSuccess={handleOnCreate} />}
       </div>
     </div>
