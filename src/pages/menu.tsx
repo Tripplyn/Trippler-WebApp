@@ -4,25 +4,32 @@ import TravelCard from "~/components/TravelCard";
 import { api } from "~/utils/api";
 import Createtravel from "~/components/CreateTravel";
 import { QueryClient, QueryClientProvider } from "react-query";
+import { Travel } from "@prisma/client";
 
 const queryClient = new QueryClient();
 
 export default function Menu() {
   const [showCreateTravel, setShowCreateTravel] = React.useState(false);
+  const [travels, setTravels] = React.useState([] as Travel[]); //NOVO
 
   const travelAll = api.travel.read.useQuery({}).data;
   const deleteTravel = api.travel.delete.useMutation();
+
+  React.useEffect(() => {
+    if (travelAll) {
+      setTravels(travelAll);
+    }
+  }, [travelAll]);
 
   const handleShowCreateTravel = () => {
     setShowCreateTravel(false);
   };
 
   const handleOnDelete = (id: number) => {
-    console.log("delete: ",id)
     try{
       deleteTravel.mutate({ id: id });
       console.log(queryClient.invalidateQueries(["travel.read"]));
-      console.log("Travel: ", id, " deleted");
+      setTravels((prevTravels) => prevTravels.filter((travel) => travel.id !== id));
     }catch (error) {
       console.error(error)
     }
@@ -44,7 +51,7 @@ export default function Menu() {
             </button>
           </div>
           <div className="p-1">
-            {travelAll?.map((travel) => (
+            {travels?.map((travel) => (
               <QueryClientProvider
                 client={queryClient}
                 contextSharing={true}
