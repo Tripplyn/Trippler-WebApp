@@ -9,13 +9,24 @@ const queryClient = new QueryClient();
 
 export default function Menu() {
   const [showCreateTravel, setShowCreateTravel] = React.useState(false);
-  const [travelCode, setTravelCode] = React.useState("");
 
   const travelAll = api.travel.read.useQuery({}).data;
+  const deleteTravel = api.travel.delete.useMutation();
 
   const handleShowCreateTravel = () => {
     setShowCreateTravel(false);
   };
+
+  const handleOnDelete = (id: number) => {
+    console.log("delete: ",id)
+    try{
+      deleteTravel.mutate({ id: id });
+      console.log(queryClient.invalidateQueries(["travel.read"]));
+      console.log("Travel: ", id, " deleted");
+    }catch (error) {
+      console.error(error)
+    }
+  }
 
   return (
     <div className="h-screen w-screen bg-background text-white">
@@ -39,7 +50,7 @@ export default function Menu() {
                 contextSharing={true}
                 key={travel.id}
               >
-                <TravelCard name={travel.travelName}/>
+                <TravelCard id={travel.id} name={travel.travelName} onDelete={() => handleOnDelete(travel.id)}/>
               </QueryClientProvider>
             ))}
           </div>
