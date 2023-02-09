@@ -3,6 +3,7 @@ import { api } from "~/utils/api";
 import { QueryClient } from "react-query";
 interface Props {
   onClose: () => void;
+  onSuccess: (data: any) => void;
 }
 
 interface FormValues {
@@ -11,12 +12,13 @@ interface FormValues {
 
 const queryClient = new QueryClient();
 
-const CreateTravel: React.FC<Props> = ({ onClose }) => {
+const CreateTravel: React.FC<Props> = ({ onClose, onSuccess }) => {
   const [formValues, setFormValues] = React.useState<FormValues>({});
 
   const { mutateAsync: createTravel } = api.travel.create.useMutation({
     onSuccess: async (data) => {
-      queryClient.setQueryData(["travel.read"], data);
+      await queryClient.setQueryData(["travel.read"], data);
+      onSuccess(data);
     },
     onError: () => {
       console.log("error while creating Travel");

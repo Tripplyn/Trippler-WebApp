@@ -25,9 +25,24 @@ export default function Menu() {
     setShowCreateTravel(false);
   };
 
-  const handleOnDelete = (id: number) => {
+
+  const handleOnCreate = (data: any) => {
+    const newTravel: Travel = {
+      id: data.id,
+      travelID: data.travelID,
+      travelName: data.travelName,
+      travelDateStart: data.travelDateStart,
+      travelDateEnd: data.travelDateEnd,
+      createdAt: data.createdAt,
+      updatedAt: data.updatedAt,
+    };
+
+    setTravels((prevTravels) => [...prevTravels, newTravel]);
+  };
+
+  const handleOnDelete = async (id: number) => {
     try{
-      deleteTravel.mutate({ id: id });
+      await deleteTravel.mutate({ id: id });
       console.log(queryClient.invalidateQueries(["travel.read"]));
       setTravels((prevTravels) => prevTravels.filter((travel) => travel.id !== id));
     }catch (error) {
@@ -57,12 +72,12 @@ export default function Menu() {
                 contextSharing={true}
                 key={travel.id}
               >
-                <TravelCard id={travel.id} name={travel.travelName} onDelete={() => handleOnDelete(travel.id)}/>
+                <TravelCard travel={travel} onDelete={() => handleOnDelete(travel.id)}/>
               </QueryClientProvider>
             ))}
           </div>
         </div>
-        {showCreateTravel && <Createtravel onClose={handleShowCreateTravel} />}
+        {showCreateTravel && <Createtravel onClose={handleShowCreateTravel} onSuccess={handleOnCreate} />}
       </div>
     </div>
   );
