@@ -1,6 +1,16 @@
 import * as React from "react";
 import { api } from "~/utils/api";
-import { QueryClient } from "react-query";
+import { useState } from "react";
+import type {
+  AlertColor} from "@mui/material";
+import {
+  Alert,
+  Snackbar,
+  IconButton
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+
+
 interface Props {
   onClose: () => void;
   onSuccess: (data: any) => void;
@@ -10,20 +20,36 @@ interface FormValues {
   name?: string;
 }
 
-const queryClient = new QueryClient();
-
 const CreateTravel: React.FC<Props> = ({ onClose, onSuccess }) => {
+  const utils = api.useContext();
+
   const [formValues, setFormValues] = React.useState<FormValues>({});
 
   const { mutateAsync: createTravel } = api.travel.create.useMutation({
     onSuccess: async (data) => {
-      await queryClient.setQueryData(["travel.read"], data);
-      onSuccess(data);
+      setSnackInfo({ message: "Success!", severity: "success" });
+      setSnackOpen(true);
+      utils.travel.read.invalidate();
     },
     onError: () => {
       console.log("error while creating Travel");
-    },
+    }
   });
+
+  const [snackInfo, setSnackInfo] = useState<{
+    severity: AlertColor | undefined
+    message: string
+  }>({ severity: undefined, message: "" });
+  const [snackOpen, setSnackOpen] = useState(false);
+  const handleSnackClose = (
+    event: React.SyntheticEvent | Event,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setSnackOpen(false);
+  };
 
   function handleTextFieldChange(
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -31,7 +57,7 @@ const CreateTravel: React.FC<Props> = ({ onClose, onSuccess }) => {
     const { name, value } = event.target;
     setFormValues({
       ...formValues,
-      [name]: value,
+      [name]: value
     });
   }
 
@@ -41,7 +67,7 @@ const CreateTravel: React.FC<Props> = ({ onClose, onSuccess }) => {
         createTravel({
           travelName: formValues.name,
           travelDateStart: new Date(2022, 9, 21),
-          travelDateEnd: new Date(2022, 9, 21),
+          travelDateEnd: new Date(2022, 9, 21)
         })
       );
       onClose();
@@ -50,6 +76,30 @@ const CreateTravel: React.FC<Props> = ({ onClose, onSuccess }) => {
 
   return (
     <div className="text-whit w-1/2 rounded-lg bg-principal p-4 shadow-md ">
+      <Snackbar
+        open={snackOpen}
+        autoHideDuration={4000}
+        onClose={handleSnackClose}
+        action={
+          <>
+            <IconButton
+              aria-label="close"
+              color="inherit"
+              onClick={handleSnackClose}
+            >
+              <CloseIcon />
+            </IconButton>
+          </>
+        }
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+      >
+        <Alert
+          onClose={handleSnackClose}
+          severity={snackInfo.severity}
+        >
+          {snackInfo.message}
+        </Alert>
+      </Snackbar>
       <div>
         <h1 className="text-4xl text-white">Create a new trip</h1>
       </div>

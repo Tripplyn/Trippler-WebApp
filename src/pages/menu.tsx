@@ -4,7 +4,7 @@ import TravelCard from "~/components/TravelCard";
 import { api } from "~/utils/api";
 import Createtravel from "~/components/CreateTravel";
 import { QueryClient, QueryClientProvider } from "react-query";
-import { Travel } from "@prisma/client";
+import type { Travel } from "@prisma/client";
 
 const queryClient = new QueryClient();
 
@@ -26,7 +26,7 @@ export default function Menu() {
   };
 
 
-  const handleOnCreate = (data: any) => {
+  const handleOnCreate = (data: Travel) => {
     const newTravel: Travel = {
       id: data.id,
       travelID: data.travelID,
