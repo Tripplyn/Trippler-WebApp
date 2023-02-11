@@ -7,8 +7,6 @@ D
 prisma/schema.prisma,1\8\187e4a6f168cf143dde68ce28a29ae08ce9b9578
 F
 src/server/api/root.ts,1\c\1cd8a9117b33f65d5078cd0e7434a0ba42f1fd05
-J
-src/components/Toolbar.tsx,f\b\fba4e98bb6a3aa6c9617433c4c2893a47add62fd
 U
 %src/components/SimpleDeleteDialog.tsx,9\9\9921d8b37649f32bd9ac71805764c016749cab1a
 U
@@ -19,5 +17,39 @@ C
 prettier.config.cjs,b\1\b19cbbf4036059fc978a8874db022d3e0a2bf730
 B
 postcss.config.cjs,d\7\d797c9d34334c8dceda2175b05676b0765968b1e
+C
+src/pages/index.tsx,d\2\d2d3bb60cab7e8c869b5fdf0a820b7edf2fc7859
+P
+ src/components/control-panel.tsx,4\8\4850203cc6e827f9963f3ecbe2f01809bbdf587f
+A
+.data/cities.json,d\4\d4bf46beca26184c46de03cf4af3eb6247d648c2
+D
+src/pages/report.tsx,c\4\c471ce3d91aa3459c29d7c6fcdc65f8acc2be93b
+B
+src/pages/_app.tsx,2\e\2eefa41a18ed6ea3f58b3748f9e5559a28e77646
+C
+tailwind.config.cjs,a\8\a825d64fa8a4855ccb263b0423919fda9cf7e9e3
+J
+src/components/Toolbar.tsx,f\b\fba4e98bb6a3aa6c9617433c4c2893a47add62fd
+F
+src/styles/globals.css,f\4\f451456fbd2ac1cc3825255bfe3cd58d1971e047
+C
+src/styles/theme.ts,8\7\87f68bc4c15004e9fff37887d2f848821ca857ff
+O
+src/components/CreateTravel.tsx,c\3\c3e19eab698fb388de0082448126b2baf3343e73
 M
 src/components/TravelCard.tsx,5\8\5819d9cec6ab89294be2f935c4b96456893509d2
+B
+src/pages/menu.tsx,c\1\c1556764c18afad666e5044cca125dce78ca90ee
+J
+src/styles/Home.module.css,6\2\621afd95ec43b70ff468925cb774e7d486548a18
+?
+.data/home.json,8\2\827d1f7416bbb099f68b84fbb0ef8894b493c348
+A
+package-lock.json,f\a\fa288d1472d29beccb489a676f68739ad365fc47
+<
+package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a
+Q
+!src/components/homeBackground.tsx,6\c\6c5c2ace91e9b1600143e53bbab86c79cceefb13
+B
+src/pages/home.tsx,2\0\20ae0fa9b29277fa6b24fefa1a0852a94d352469
