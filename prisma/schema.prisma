@@ -10,21 +10,34 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// Are 2 different ids necessary?
 model Travel {
-  id              Int            @unique @default(autoincrement())
-  travelID        String         @unique @default(cuid())
-  createdAt       DateTime       @default(now())
-  updatedAt       DateTime       @updatedAt
-  travelName      String
-  travelDateStart DateTime
-  travelDateEnd   DateTime
-  Stop            Stop[]         @relation()
-  Transit         Transit[]      @relation()
-  PackingItems    PackingItems[] @relation()
+  id                Int            @id @unique @default(autoincrement())
+  travelID          String         @unique @default(cuid())
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+  cityName          String
+  countryName       String
+  travelName        String
+  description       String
+  details           String         
+  travelDateStart   DateTime
+  travelDateEnd     DateTime
+  Stops             Stop[]         @relation()
+  Transits          Transit[]      @relation()
+  PackingItems      PackingItem[]  @relation()
+  Reviews           Review[]       @relation()
+  Host              User           @relation(name: "TripHost", fields: [hostID], references: [userID])
+  hostID            String
+
+  // Participants      User[]         @relation(name: "UserFollows", fields: [participantsID], references: [userID])
+  // participantsID    String[]
+
+  // Video             Media
 }
 
 model Stop {
-  id              Int       @unique @default(autoincrement())
+  id              Int       @id @unique @default(autoincrement())
   stopID          String    @unique @default(cuid())
   createdAt       DateTime  @default(now())
   updatedAt       DateTime  @updatedAt
@@ -34,27 +47,31 @@ model Stop {
   travelID        String
   NextTransit     Transit[] @relation("TransitToNextStop")
   PreviousTransit Transit[] @relation("TransitToPreviousStop")
+  Medias          Media[]   @relation()
+  Comments        Comment[] @relation()
 }
 
 model Transit {
-  id             Int      @unique @default(autoincrement())
-  transitID      String   @unique @default(cuid())
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
+  id             Int       @id @unique @default(autoincrement())
+  transitID      String    @unique @default(cuid())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
   mode           String
   duration       Float
   distance       Float
   ditanceUnit    String
-  PreviousStop   Stop     @relation("TransitToPreviousStop", fields: [previousStopID], references: [stopID])
+  PreviousStop   Stop      @relation(name: "TransitToPreviousStop", fields: [previousStopID], references: [stopID])
   previousStopID String
-  NextStop       Stop     @relation("TransitToNextStop", fields: [nextStopID], references: [stopID])
+  NextStop       Stop      @relation(name: "TransitToNextStop", fields: [nextStopID], references: [stopID])
   nextStopID     String
-  Travel         Travel   @relation(fields: [travelID], references: [travelID])
+  Travel         Travel    @relation(fields: [travelID], references: [travelID])
   travelID       String
+  Medias         Media[]   @relation()
+  Comments       Comment[] @relation()
 }
 
-model PackingItems {
-  id        Int      @unique @default(autoincrement())
+model PackingItem {
+  id        Int      @id @unique @default(autoincrement())
   itemID    String   @unique @default(cuid())
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -62,4 +79,72 @@ model PackingItems {
   quantity  Int
   Travel    Travel   @relation(fields: [travelID], references: [travelID])
   travelID  String
+}
+
+model Media {
+  id        Int      @id @unique @default(autoincrement())
+  mediaID   String   @unique @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Stop      Stop?    @relation(fields: [stopID], references: [stopID])
+  stopID    String?   
+  Transit   Transit? @relation(fields: [transitID], references: [transitID])
+  transitID String?
+  mediaFile String
+}
+
+model Review {
+  id        Int      @id @unique @default(autoincrement())
+  reviewID  String   @unique @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  grade     Int
+  content   String?
+  Travel    Travel   @relation(fields: [travelID], references: [travelID])
+  travelID  String
+  user      User     @relation(fields: [userID], references: [userID])
+  userID    String
+}
+
+model Comment {
+  id        Int      @id @unique @default(autoincrement())
+  commentID String   @unique @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  content   String
+  Stop      Stop?    @relation(fields: [stopID], references: [stopID])
+  stopID    String?   
+  Transit   Transit? @relation(fields: [transitID], references: [transitID])
+  transitID String?
+  user      User     @relation(fields: [userID], references: [userID])
+  userID    String
+}
+
+model User {
+  id             Int       @id @unique @default(autoincrement())
+  userID         String    @unique @default(cuid())
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  name           String
+  username       String    @unique
+  password       String
+  profilePicture String?
+  email          String
+  emailVerified  DateTime?
+  phoneNumber    String?
+  birthDate      DateTime
+  address        String?
+  MyTrips        Travel[]  @relation("TripHost")
+
+  // LikedTrips     Travel[]  @relation()
+
+  Reviews        Review[]  @relation()
+  Comments       Comment[] @relation()
+
+  // followedBy     User[]    @relation("UserFollows")
+  // following      User[]    @relation("UserFollows")
+}
+
+model UserSettings {
+  id             Int       @id @unique @default(autoincrement())
 }
