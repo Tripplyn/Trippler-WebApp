@@ -46,3 +46,4 @@ yarn-error.log*
 
 # pages
 test.tsx
+.idea/jsLibraryMappings.xml
