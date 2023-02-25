@@ -16,23 +16,21 @@ model Travel {
   travelID          String         @unique @default(cuid())
   createdAt         DateTime       @default(now())
   updatedAt         DateTime       @updatedAt
-  cityName          String
-  countryName       String
-  travelName        String
-  description       String
-  details           String         
-  travelDateStart   DateTime
-  travelDateEnd     DateTime
+  cityName          String?
+  countryName       String?
+  travelName        String?
+  description       String?
+  details           String?
+  travelDateStart   DateTime?
+  travelDateEnd     DateTime?
   Stops             Stop[]         @relation()
   Transits          Transit[]      @relation()
   PackingItems      PackingItem[]  @relation()
   Reviews           Review[]       @relation()
-  Host              User           @relation(name: "TripHost", fields: [hostID], references: [userID])
-  hostID            String
-
+  // Host              User           @relation(name: "TripHost", fields: [hostID], references: [userID])
+  // hostID            String
   // Participants      User[]         @relation(name: "UserFollows", fields: [participantsID], references: [userID])
   // participantsID    String[]
-
   // Video             Media
 }
 
@@ -56,8 +54,8 @@ model Transit {
   transitID      String    @unique @default(cuid())
   createdAt      DateTime  @default(now())
   updatedAt      DateTime  @updatedAt
-  mode           String
-  duration       Float
+  mode           String?
+  duration       Float?
   distance       Float
   ditanceUnit    String
   PreviousStop   Stop      @relation(name: "TransitToPreviousStop", fields: [previousStopID], references: [stopID])
@@ -134,7 +132,7 @@ model User {
   phoneNumber    String?
   birthDate      DateTime
   address        String?
-  MyTrips        Travel[]  @relation("TripHost")
+  // MyTrips        Travel[]  @relation("TripHost")
 
   // LikedTrips     Travel[]  @relation()
 
