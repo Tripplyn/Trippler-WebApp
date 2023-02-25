@@ -7,19 +7,25 @@
     <img src="https://i.imgur.com/0P06Io8.png" alt="Logo" width="128" height="128">
   </a>
 
-  <h3 align="center">Web Application</h3>
+  <h3 align="center">Trippler</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    An awesome open-source project to save and share your travel memories!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://trippler.vercel.app"><strong>Visit the website »</strong></a>
     <br />
     <br />
-    <a href="https://website.com">View Demo</a>
+    <a href="https://github.com/Trippler-Travel-App">GitHub</a>
     ·
-    <a href="https://github.com/Trippler-Travel-App/WebApp/issues">Report Bug</a>
+    <a href="https://www.notion.so/travel-app-proj/invite/5a17a810dfa2cf0a961cbf8fce49c1a940026e3f">Notion</a>
+    ·
+    <a href="https://www.figma.com/team_invite/redeem/no0ibz5plNl0KBjH888dHO">Figma</a>
+    ·
+    <a href="https://discord.gg/NVGgxNUY">Discord</a>
     ·
     <a href="https://github.com/Trippler-Travel-App/WebApp/issues">Request Feature</a>
+    ·
+    <a href="https://github.com/Trippler-Travel-App/WebApp/issues">Report Bug</a>
   </p>
 </div>
 
@@ -37,7 +43,7 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
+        <li><a href="#setup">Setup</a></li>
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
@@ -50,7 +56,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Web Application
+Lorem ipsum [GIF]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -64,6 +70,7 @@ Web Application
 * [![Prisma][Prisma]][Prisma-url]
 * [![tRPC][tRPC]][tRPC-url]
 * [![Axios][Axios]][Axios-url]
+* [![Tailwind][Tailwind]][Tailwind-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -71,47 +78,51 @@ Web Application
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running, please follow these simple steps.
 
 ### Prerequisites
 
+Here is what you need to be able to run Trippler.
+
+* Node.js (Version: >=15.x <17)
+  ```sh
+  winget install OpenJS.NodeJS
+  ```
 * npm
-  ```console
+  ```sh
   npm install npm@latest -g
   ```
 
-### Installation
+> If you want to enable any of the available integrations, you may want to obtain additional credentials for each one. More details on this can be found below under the [integrations section](#integrations).
 
-Execute commands on your Terminal:
+## Development
 
-→ Clone the repo
-   ```console
+### Setup
+
+1. Clone the repo into a public GitHub repository (or fork https://github.com/Trippler-Travel-App/Trippler-WebApp/fork). If you plan to distribute the code, keep the source code public to comply with [AGPLv3](https://github.com/Trippler-Travel-App/Trippler-WebApp/blob/main/LICENSE). To clone in a private repository, [acquire a commercial license](https://trippler.com/sales))
+   ```sh
    git clone https://github.com/Trippler-Travel-App/Trippler-WebApp.git
    ```
-→ Move to the project directory
+1. Move to the project directory
    ```console
    cd Trippler-WebApp
    ```
-→ Install NPM packages
+1. Install *npm* packages
    ```console
    npm install
    ```
-→ Create `.env` file based on `.env.example`
-   ```console
-   copy .env.example .env
-   ```
-→ Generate a Secret and copy the buffer
-   ```console
-   openssl rand -base64 32
-   ```
-→ Open file `.env` to paste that on NEXTAUTH_SECRET
+1. Set up your .env file
+   - Duplicate `.env.example` to `.env`
+     ```sh
+     copy .env.example .env
+     ```
+   - Use *openssl* to generate a key and add it under `NEXTAUTH_SECRET` in the .env file.
+      ```sh
+       openssl rand -base64 32
+     ```
+   - Reach out to us for the `DATABASE_URL` and add it to the .env file.
 
-<p align="left">→ Reach <a href="#contact">contacts</a> for DATABASE_URL</p>
-
-→ Execute development server and access https://localhost:3000
-   ```console
-   npm run dev
-   ```
+#### Quick start with `npm run dev` and access [https://localhost:3000](https://localhost:3000)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -147,7 +158,7 @@ Yuri Winche Achermann - [@YuriAchermann](https://twitter.com/YuriAchermann) - yu
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [product-screenshot]: images/screenshot.png
 [Typescript]: https://img.shields.io/badge/Typescript-000000?style=for-the-badge&logo=typescript
-[Typescript-url]: https://www.typescriptlang.org
+[Typescript-url]: https://www.typescriptlang.org/
 [Node.js]: https://img.shields.io/badge/Node.js-000000?style=for-the-badge&logo=nodedotjs
 [Node-url]: https://nodejs.org/en/
 [React.js]: https://img.shields.io/badge/React-000000?style=for-the-badge&logo=react
@@ -155,8 +166,10 @@ Yuri Winche Achermann - [@YuriAchermann](https://twitter.com/YuriAchermann) - yu
 [Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs
 [Next-url]: https://nextjs.org/
 [Prisma]: https://img.shields.io/badge/Prisma-000000?style=for-the-badge&logo=prisma
-[Prisma-url]: https://www.prisma.io
+[Prisma-url]: https://www.prisma.io/
 [tRPC]: https://img.shields.io/badge/tRPC-000000?style=for-the-badge&logo=trpc
-[tRPC-url]: https://trpc.io
+[tRPC-url]: https://trpc.io/
 [Axios]: https://img.shields.io/badge/Axios-000000?style=for-the-badge&logo=axios
-[Axios-url]: https://trpc.io
+[Axios-url]: https://trpc.io/
+[Tailwind]: https://img.shields.io/badge/Tailwind-000000?style=for-the-badge&logo=tailwindcss
+[Tailwind-url]: https://tailwindcss.com/
