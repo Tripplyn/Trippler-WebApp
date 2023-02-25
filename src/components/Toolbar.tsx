@@ -18,8 +18,8 @@ export default function Toolbar() {
             src="/logo.png"
             className="mr-3 h-6 h-9"
             alt="Tripplyn Logo"
-            width={100}
-            height={100}
+            width={40}
+            height={40}
           />
           <span className="self-center text-xl font-semibold text-white">
             Tripplyn
@@ -30,8 +30,8 @@ export default function Toolbar() {
             src="/gustavo.png"
             className="mr-3 h-6 h-9 rounded-full"
             alt="Gustavo"
-            width={100}
-            height={100}
+            width={40}
+            height={40}
           />
         </div>
       </div>
