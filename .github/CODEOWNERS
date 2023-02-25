@@ -5,17 +5,17 @@
 # the repo. Unless a later match takes precedence,
 # @global-owner1 and @global-owner2 will be requested for
 # review when someone opens a pull request.
-*           @trippler/reviewers
+*           @tripplyn/reviewers
 
-.github/    @trippler/core
-.husky/     @trippler/core
-.vcode/     @trippler/core
-.snaplet/   @trippler/core
-deploy/     @trippler/core
-scripts/    @trippler/core
+.github/    @tripplyn/core
+.husky/     @tripplyn/core
+.vcode/     @tripplyn/core
+.snaplet/   @tripplyn/core
+deploy/     @tripplyn/core
+scripts/    @tripplyn/core
 
-apps/docs       @trippler/docs
-apps/swagger    @trippler/docs
+apps/docs       @tripplyn/docs
+apps/swagger    @tripplyn/docs
 
 packages/app-store-cli                @hariombalhara
 packages/dayjs                        @zomars
@@ -28,5 +28,5 @@ packages/features/ee/impersonation    @sean-brydon
 packages/features/ee/payments         @alannnc
 packages/features/ee/workflows        @CarinaWolli
 packages/features/tips                @PeerRich
-packages/ui                           @trippler/ui
-packages/config                       @trippler/core
+packages/ui                           @tripplyn/ui
+packages/config                       @tripplyn/core

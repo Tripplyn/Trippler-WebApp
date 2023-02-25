@@ -7,7 +7,7 @@
     <img src="https://i.imgur.com/0P06Io8.png" alt="Logo" width="128" height="128">
   </a>
 
-  <h3 align="center">Trippler</h3>
+  <h3 align="center">Tripplyn</h3>
 
   <p align="center">
     An awesome open-source project to save and share your travel memories!
@@ -15,7 +15,7 @@
     <a href="https://trippler.vercel.app"><strong>Visit the website »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/Trippler-Travel-App">GitHub</a>
+    <a href="https://github.com/Tripplyn">GitHub</a>
     ·
     <a href="https://www.notion.so/travel-app-proj/invite/5a17a810dfa2cf0a961cbf8fce49c1a940026e3f">Notion</a>
     ·
@@ -23,9 +23,9 @@
     ·
     <a href="https://discord.gg/NVGgxNUY">Discord</a>
     ·
-    <a href="https://github.com/Trippler-Travel-App/WebApp/issues">Request Feature</a>
+    <a href="https://github.com/Tripplyn/WebApp/issues">Request Feature</a>
     ·
-    <a href="https://github.com/Trippler-Travel-App/WebApp/issues">Report Bug</a>
+    <a href="https://github.com/Tripplyn/WebApp/issues">Report Bug</a>
   </p>
 </div>
 
@@ -82,7 +82,7 @@ To get a local copy up and running, please follow these simple steps.
 
 ### Prerequisites
 
-Here is what you need to be able to run Trippler.
+Here is what you need to be able to run Tripplyn.
 
 * Node.js (Version: >=15.x <17)
   ```sh
@@ -99,9 +99,9 @@ Here is what you need to be able to run Trippler.
 
 ### Setup
 
-1. Clone the repo into a public GitHub repository (or fork https://github.com/Trippler-Travel-App/Trippler-WebApp/fork). If you plan to distribute the code, keep the source code public to comply with [AGPLv3](https://github.com/Trippler-Travel-App/Trippler-WebApp/blob/main/LICENSE). To clone in a private repository, [acquire a commercial license](https://trippler.com/sales))
+1. Clone the repo into a public GitHub repository (or fork https://github.com/Tripplyn/Trippler-WebApp/fork). If you plan to distribute the code, keep the source code public to comply with [AGPLv3](https://github.com/Trippler-Travel-App/Trippler-WebApp/blob/main/LICENSE). To clone in a private repository, [acquire a commercial license](https://trippler.com/sales))
    ```sh
-   git clone https://github.com/Trippler-Travel-App/Trippler-WebApp.git
+   git clone https://github.com/Tripplyn/Trippler-WebApp.git
    ```
 1. Move to the project directory
    ```console

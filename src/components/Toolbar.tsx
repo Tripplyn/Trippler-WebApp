@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 export default function Toolbar() {
   const router = useRouter();
@@ -13,16 +14,24 @@ export default function Toolbar() {
             router.push("/menu");
           }}
         >
-          <img src="/logo.png" className="mr-3 h-6 h-9" alt="Trippler Logo" />
+          <Image
+            src="/logo.png"
+            className="mr-3 h-6 h-9"
+            alt="Tripplyn Logo"
+            width={100}
+            height={100}
+          />
           <span className="self-center text-xl font-semibold text-white">
-            Trippler
+            Tripplyn
           </span>
         </div>
         <div className="flex md:order-2">
-          <img
+          <Image
             src="/gustavo.png"
             className="mr-3 h-6 h-9 rounded-full"
             alt="Gustavo"
+            width={100}
+            height={100}
           />
         </div>
       </div>

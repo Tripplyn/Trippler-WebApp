@@ -1,8 +1,8 @@
-# Contributing to Trippler
+# Contributing to Tripplyn
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-- Before jumping into a PR be sure to search [existing PRs](https://github.com/Trippler-Travel-App/Trippler-WebApp/pulls) or [issues](https://github.com/Trippler-Travel-App/Trippler-WebApp/issues) for an open or closed item that relates to your submission.
+- Before jumping into a PR be sure to search [existing PRs](https://github.com/Tripplyn/Trippler-WebApp/pulls) or [issues](https://github.com/Trippler-Travel-App/Trippler-WebApp/issues) for an open or closed item that relates to your submission.
 
 ## Priorities
 
@@ -20,7 +20,7 @@ Contributions are what make the open source community such an amazing place to l
       Minor improvements, non-core feature requests
     </td>
     <td>
-      <a href="https://github.com/Trippler-Travel-App/Trippler-WebApp/issues?q=is:issue+is:open+sort:updated-desc+label:%22Low+priority%22">
+      <a href="https://github.com/Tripplyn/Trippler-WebApp/issues?q=is:issue+is:open+sort:updated-desc+label:%22Low+priority%22">
         <img src="https://img.shields.io/badge/-Low%20Priority-green" alt="Low Priority">
       </a>
     </td>
@@ -30,7 +30,7 @@ Contributions are what make the open source community such an amazing place to l
       Confusing UX (... but working)
     </td>
     <td>
-      <a href="https://github.com/Trippler-Travel-App/Trippler-WebApp/issues?q=is:issue+is:open+sort:updated-desc+label:%22Medium+priority%22">
+      <a href="https://github.com/Tripplyn/Trippler-WebApp/issues?q=is:issue+is:open+sort:updated-desc+label:%22Medium+priority%22">
         <img src="https://img.shields.io/badge/-Medium%20Priority-yellow" alt="Medium Priority">
       </a>
     </td>
@@ -40,7 +40,7 @@ Contributions are what make the open source community such an amazing place to l
       Core Features (Booking page, availabilty, timezone calculation)
     </td>
     <td>
-      <a href="https://github.com/Trippler-Travel-App/Trippler-WebApp/issues?q=is:issue+is:open+sort:updated-desc+label:%22High+priority%22">
+      <a href="https://github.com/Tripplyn/Trippler-WebApp/issues?q=is:issue+is:open+sort:updated-desc+label:%22High+priority%22">
         <img src="https://img.shields.io/badge/-High%20Priority-orange" alt="High Priority">
       </a>
     </td>
@@ -50,7 +50,7 @@ Contributions are what make the open source community such an amazing place to l
       Core Bugs (Login, Booking page, Emails are not working)
     </td>
     <td>
-      <a href="https://github.com/Trippler-Travel-App/Trippler-WebApp/issues?q=is:issue+is:open+sort:updated-desc+label:Urgent">
+      <a href="https://github.com/Tripplyn/Trippler-WebApp/issues?q=is:issue+is:open+sort:updated-desc+label:Urgent">
         <img src="https://img.shields.io/badge/-Urgent-red" alt="Urgent">
       </a>
     </td>
