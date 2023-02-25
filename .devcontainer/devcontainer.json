@@ -1,0 +1,30 @@
+
+{
+  "name": "Docker outside of Docker",
+  "image": "mcr.microsoft.com/devcontainers/base:bullseye",
+
+  "features": {
+    "ghcr.io/devcontainers/features/docker-from-docker:1": {
+      "version": "latest",
+      "enableNonRootDocker": "true",
+      "moby": "true"
+    },
+    "ghcr.io/devcontainers/features/node:1": {},
+    "ghcr.io/devcontainers-contrib/features/npm-package:1": {},
+    "ghcr.io/devcontainers-contrib/features/jest:2": {},
+    "ghcr.io/devcontainers-contrib/features/prisma:2": {},
+    "ghcr.io/guiyomh/features/vim:0": {}
+  },
+
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
+
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb"
+  },
+
+  "postCreateCommand": "./deploy/install.sh"
+
+}
