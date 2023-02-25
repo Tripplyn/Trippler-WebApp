@@ -1,0 +1,7 @@
+node_modules
+.next
+public
+**/**/.next
+.gitignore
+.prettierignore
+packages/prisma/zod

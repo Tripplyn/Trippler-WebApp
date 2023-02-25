@@ -1,24 +1,28 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
+node_modules
+.pnp
 .pnp.js
 
 # testing
-/coverage
+coverage
+/test-results/
+**/playwright/videos
+**/playwright/screenshots
+**/playwright/artifacts
+**/playwright/results
+**/playwright/reports/*
 
 # database
 /prisma/db.sqlite
 /prisma/db.sqlite-journal
 
 # next.js
-/.next/
-/out/
+.next/
+out/
 next-env.d.ts
-
-# production
-/build
+build
 
 # misc
 .DS_Store
@@ -34,6 +38,13 @@ yarn-error.log*
 # do not commit any .env files to git, except for the .env.example file. https://create.t3.gg/en/usage/env-variables#using-environment-variables
 .env
 .env*.local
+!packages/prisma/.env
+.env.development.local
+.env.test.local
+.env.production.local
+.env.*
+!.env.example
+!.env.appStore.example
 
 # vercel
 .vercel
@@ -41,11 +52,54 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 
-# SonarLint
-/.idea/
+# WebStorm
+.idea
+
+# VisualStudioCode template
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Local History for Visual Studio Code
+.history/
 
 # Vitest
 /.vitest-result.json
 
-# pages
-test.tsx
+# Typescript
+tsconfig.tsbuildinfo
+
+# turbo
+.turbo
+
+# Prisma-Zod
+packages/prisma/zod/*.ts
+
+# Builds
+dist
+
+# Linting
+lint-results
+
+#Storybook
+apps/storybook/build-storybook.log
+
+# Infisical
+.infisical.json
+
+# Snaplet
+.snaplet/snapshots
+.snaplet/structure.d.ts
+
+# Submodules
+.gitmodules
+apps/api
+apps/website
+apps/console
+apps/auth
+
+# Test Pages
+src/pages/test.tsx
